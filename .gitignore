@@ -12,5 +12,5 @@ plan.txt
 skills-lock.json
 slides/
 
-tmp/
-admin/
+_tmp/
+_admin/
