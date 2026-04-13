@@ -6,7 +6,7 @@
 
 GitHub Pages で公開しています。
 
-🔗 **https://clshinji.github.io/20260411-lc-claude-code-handson/**
+🔗 **https://clshinji.github.io/lc-claude-code-handson/**
 
 ## 構成
 
