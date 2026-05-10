@@ -4,6 +4,8 @@
 .claude/settings.local.json
 .claude/.DS_Store
 
+.playwright-mcp/
+
 demo-prompts.md
 demo-site/
 event-description.txt

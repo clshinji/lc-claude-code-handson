@@ -6,19 +6,26 @@
   <title>話題のClaude Code、体験してみよう！ ゆるっとハンズオン会</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #191918;
-      --paper: #faf9f7;
-      --warm: #f0eeeb;
-      --accent: #d97757;
-      --accent-fade: rgba(217,119,87,0.08);
-      --sage: #5a7a62;
-      --sage-fade: rgba(90,122,98,0.1);
-      --slate: #6b6560;
-      --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
-      --font-mono: 'DM Mono', monospace;
+      --ink: #1d1d1f;
+      --ink-muted: #333333;
+      --paper: #ffffff;
+      --warm: #f5f5f7;
+      --pearl: #fafafc;
+      --accent: #0066cc;
+      --accent-hover: #0077ed;
+      --accent-active: #003580;
+      --accent-on-dark: #2997ff;
+      --hairline: #e0e0e0;
+      --divider-soft: #f0f0f0;
+      --slate: #7a7a7a;
+      --body-muted: #cccccc;
+      --surface-dark: #272729;
+      --surface-black: #000000;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Noto Sans JP', system-ui, 'Segoe UI', sans-serif;
+      --font-mono: ui-monospace, 'SF Mono', 'Menlo', 'Cascadia Mono', monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,7 +34,8 @@
       font-family: var(--font-sans);
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.8;
+      line-height: 1.47;
+      letter-spacing: -0.01em;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -53,9 +61,10 @@
     }
 
     .hero h1 {
-      font-weight: 800;
-      font-size: clamp(2.2rem, 6vw, 4.8rem);
-      line-height: 1.2;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: clamp(2.2rem, 5.4vw, 3.5rem);
+      line-height: 1.07;
       letter-spacing: -0.02em;
       max-width: 16em;
     }
@@ -64,41 +73,56 @@
       color: var(--accent);
     }
 
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: -0.01em;
+      margin-top: 1.2rem;
+    }
+
     .hero-bottom {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 2rem;
-      border-top: 1px solid rgba(25,25,24,0.15);
+      border-top: 1px solid var(--hairline);
       padding-top: 1.5rem;
       position: relative;
       z-index: 1;
     }
 
     .hero-meta {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
       color: var(--slate);
-      line-height: 1.7;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
     }
 
     .hero-cta {
       display: inline-block;
-      background: var(--ink);
+      background: var(--accent);
       color: var(--paper);
       font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85em 2.4em;
+      font-weight: 400;
+      font-size: 1.05rem;
+      padding: 0.75em 1.6em;
       text-decoration: none;
-      border-radius: 8px;
-      transition: transform 0.2s, background 0.2s;
+      border-radius: 9999px;
+      transition: background 0.2s, transform 0.15s;
     }
 
     .hero-cta:hover {
-      background: var(--accent);
-      transform: scale(1.03);
+      background: var(--accent-hover);
       text-decoration: none;
+    }
+
+    .hero-cta:active {
+      background: var(--accent-active);
+      transform: scale(0.96);
     }
 
     /* ── Section rhythm ── */
@@ -107,7 +131,7 @@
     }
 
     .band--dark {
-      background: var(--ink);
+      background: var(--surface-dark);
       color: var(--paper);
     }
 
@@ -120,30 +144,34 @@
     }
 
     .band-number {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
       color: var(--accent);
-      letter-spacing: 0.1em;
+      letter-spacing: -0.014em;
       margin-bottom: 0.8rem;
     }
 
-    .band--dark .band-number { color: var(--paper); opacity: 0.5; }
+    .band--dark .band-number { color: var(--accent-on-dark); opacity: 0.85; }
 
     .band-header h2 {
-      font-weight: 800;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
     .band-header p {
       margin-top: 0.8rem;
-      color: var(--slate);
-      font-size: 0.95rem;
+      color: var(--ink-muted);
+      font-size: 1.0625rem;
+      letter-spacing: -0.022em;
+      line-height: 1.47;
       max-width: 600px;
     }
 
-    .band--dark .band-header p { color: rgba(250,249,247,0.6); }
+    .band--dark .band-header p { color: var(--body-muted); }
 
     /* ── Timeline ── */
     .tl {
@@ -169,9 +197,11 @@
     }
 
     .tl-time {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      opacity: 0.5;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      opacity: 0.55;
       margin-bottom: 0.5rem;
     }
 
@@ -257,38 +287,52 @@
       border-radius: 3px;
     }
 
-    .prep-item--must::before { background: var(--accent); }
-    .prep-item--rec::before { background: var(--sage); }
-    .prep-item--opt::before { background: var(--slate); opacity: 0.3; }
+    .prep-item--must::before { background: var(--ink); }
+    .prep-item--rec::before { background: var(--accent); }
+    .prep-item--opt::before { background: var(--hairline); }
+    .prep-item--ref::before { background: var(--hairline); opacity: 0.5; }
+
+    .prep-item--ref {
+      opacity: 0.94;
+      margin-top: 1rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--divider-soft);
+    }
 
     .prep-tag {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: -0.014em;
       margin-bottom: 0.4rem;
     }
 
-    .prep-item--must .prep-tag { color: var(--accent); }
-    .prep-item--rec .prep-tag { color: var(--sage); }
+    .prep-item--must .prep-tag { color: var(--ink); }
+    .prep-item--rec .prep-tag { color: var(--accent); }
     .prep-item--opt .prep-tag { color: var(--slate); }
+    .prep-item--ref .prep-tag { color: var(--slate); }
 
     .prep-item h3 {
-      font-weight: 700;
-      font-size: 1.3rem;
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.022em;
       margin-bottom: 0.6rem;
-      line-height: 1.3;
+      line-height: 1.24;
     }
 
     .prep-item p {
-      color: var(--slate);
-      font-size: 0.95rem;
+      color: var(--ink-muted);
+      font-size: 1.0625rem;
+      letter-spacing: -0.022em;
+      line-height: 1.47;
       margin-bottom: 0.6rem;
     }
 
     .prep-item ol {
-      color: var(--slate);
-      font-size: 0.95rem;
+      color: var(--ink-muted);
+      font-size: 1.0625rem;
+      letter-spacing: -0.022em;
+      line-height: 1.47;
       padding-left: 1.2em;
       margin-bottom: 0.6rem;
     }
@@ -298,8 +342,8 @@
     }
 
     .prep-item ol li::marker {
-      font-family: var(--font-mono);
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-weight: 600;
       color: var(--accent);
     }
 
@@ -308,20 +352,21 @@
       display: flex;
       gap: 0;
       margin: 1rem 0 0;
-      border-bottom: 2px solid var(--warm);
+      border-bottom: 1px solid var(--hairline);
     }
 
     .os-tab {
-      padding: 0.6em 1.4em;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 500;
+      padding: 0.7em 1.4em;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: -0.014em;
       cursor: pointer;
       border: none;
       background: none;
       color: var(--slate);
       border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
+      margin-bottom: -1px;
       transition: color 0.2s, border-color 0.2s;
     }
 
@@ -344,61 +389,55 @@
     /* ── Aside boxes ── */
     .prep-aside {
       margin-top: 1.2rem;
-      padding: 1.2rem 1.5rem;
-      font-size: 0.88rem;
-      line-height: 1.7;
-    }
-
-    .prep-aside--warn {
-      background: var(--accent-fade);
-      border-radius: 8px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .prep-aside--info {
-      background: var(--sage-fade);
-      border-radius: 8px;
-      border-left: 3px solid var(--sage);
+      padding: 1.4rem 1.6rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      background: var(--warm);
+      border-radius: 18px;
     }
 
     .prep-aside strong {
       display: block;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.014em;
       margin-bottom: 0.2rem;
+      color: var(--ink);
     }
 
     .prep-aside--warn strong { color: var(--accent); }
-    .prep-aside--info strong { color: var(--sage); }
 
     .prep-aside p {
-      color: var(--slate);
-      font-size: 0.88rem;
+      color: var(--ink-muted);
+      font-size: 0.9375rem;
+      letter-spacing: -0.014em;
       margin-bottom: 0;
     }
 
     /* ── Code block ── */
     .cmd {
-      background: var(--ink);
+      background: var(--surface-dark);
       color: var(--paper);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
-      padding: 0.9rem 1.2rem;
+      font-size: 0.875rem;
+      padding: 1rem 1.2rem;
       margin: 0.8rem 0;
       overflow-x: auto;
-      border-radius: 8px;
+      border-radius: 11px;
+      letter-spacing: 0;
     }
 
-    .cmd .ps { color: var(--sage); user-select: none; }
+    .cmd .ps { color: var(--accent-on-dark); user-select: none; }
 
     kbd {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 0.82em;
+      font-size: 0.85em;
       background: var(--warm);
       padding: 0.1em 0.5em;
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid var(--hairline);
       border-bottom-width: 2px;
-      border-radius: 4px;
+      border-radius: 5px;
     }
 
     /* ── Checklist ── */
@@ -425,13 +464,15 @@
 
     .cl-item h4 {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      letter-spacing: -0.014em;
       margin-bottom: 0.3rem;
     }
 
     .cl-item p {
-      color: var(--slate);
-      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-size: 0.85rem;
+      letter-spacing: -0.014em;
       line-height: 1.5;
     }
 
@@ -455,22 +496,25 @@
     /* ── Footer ── */
     footer {
       padding: 3rem clamp(2rem, 6vw, 6rem);
+      background: var(--warm);
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(25,25,24,0.1);
+      border-top: 1px solid var(--hairline);
     }
 
     .footer-title {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      letter-spacing: -0.014em;
     }
 
     .footer-sub {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.75rem;
+      letter-spacing: -0.012em;
       color: var(--slate);
     }
 
@@ -488,7 +532,10 @@
   <!-- ━━ Hero ━━ -->
   <section class="hero">
     <div class="hero-top">
-      <h1>話題の<br><span class="accent">Claude Code</span><br>体験してみよう</h1>
+      <div>
+        <h1>話題の<br><span class="accent">Claude Code &amp; Cowork</span><br>体験してみよう</h1>
+        <p class="hero-sub">— Claude Desktop で実践 —</p>
+      </div>
     </div>
     <div class="hero-bottom">
       <div class="hero-meta">
@@ -519,7 +566,7 @@
         <div class="tl-time">0:15</div>
         <div class="tl-dot"></div>
         <div class="tl-label">基本操作</div>
-        <div class="tl-desc">Claude Codeの基本的な使い方を紹介</div>
+        <div class="tl-desc">Claude Desktopで Code &amp; Cowork の基本を体験</div>
       </div>
       <div class="tl-item tl-break">
         <div class="tl-time">0:45</div>
@@ -587,11 +634,71 @@
         </div>
       </div>
 
-      <!-- 3. CLI Install -->
+      <!-- 3. Desktop App (NEW PRIORITY) -->
       <div class="prep-item prep-item--rec">
-        <div class="prep-tag">推奨（当日も一緒にやります）</div>
-        <h3>Claude Code CLI をインストールする</h3>
-        <p>ターミナル（コマンドライン）から使うClaude Codeです。当日も一緒に進めますが、事前にやっておくとスムーズです。</p>
+        <div class="prep-tag">推奨（今回のメイン）</div>
+        <h3>Claude デスクトップアプリをインストールする</h3>
+        <p><strong>当日のハンズオンは、このアプリから進めます。</strong> Claude Code と Cowork が組み込まれているので、ターミナルを開かず GUI でそのまま体験できます。</p>
+
+        <div class="os-tabs" data-group="app">
+          <button class="os-tab active" data-os="mac">Mac</button>
+          <button class="os-tab" data-os="win">Windows</button>
+        </div>
+        <div class="os-content active" data-group="app" data-os="mac">
+          <ol>
+            <li><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> にアクセスし「Download」からMac版をダウンロード</li>
+            <li>ダウンロードした .dmg ファイルを開き、アプリケーションフォルダにドラッグ</li>
+            <li>アプリを起動し、ログイン後に「Code」と「Cowork」が使える状態を確認</li>
+          </ol>
+        </div>
+        <div class="os-content" data-group="app" data-os="win">
+          <ol>
+            <li><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> にアクセスし「Download」からWindows版をダウンロード</li>
+            <li>ダウンロードしたインストーラーを実行</li>
+            <li>アプリを起動し、ログイン後に「Code」と「Cowork」が使える状態を確認</li>
+          </ol>
+        </div>
+
+        <div class="prep-aside prep-aside--info">
+          <strong>Cowork とは？</strong>
+          <p>デスクトップアプリの中で Claude と並んで作業する協働ワークスペースです。当日の実践タイムで一緒に触ります。事前に詳しく調べる必要はありません。</p>
+        </div>
+      </div>
+
+      <!-- 4. Editor (任意) -->
+      <div class="prep-item prep-item--opt">
+        <div class="prep-tag">任意</div>
+        <h3>コードエディタをインストールする</h3>
+        <p>必須ではありませんが、あると作業が快適になります。</p>
+
+        <div class="os-tabs" data-group="editor">
+          <button class="os-tab active" data-os="vscode">VS Code</button>
+          <button class="os-tab" data-os="cursor">Cursor</button>
+        </div>
+        <div class="os-content active" data-group="editor" data-os="vscode">
+          <ol>
+            <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a> からダウンロード（無料）</li>
+            <li>インストール後、拡張機能（<kbd>Cmd+Shift+X</kbd> / <kbd>Ctrl+Shift+X</kbd>）で「Claude Code」を検索してインストール</li>
+          </ol>
+        </div>
+        <div class="os-content" data-group="editor" data-os="cursor">
+          <ol>
+            <li><a href="https://www.cursor.com/" target="_blank" rel="noopener">cursor.com</a> からダウンロード</li>
+            <li>AI機能が組み込まれたエディタで、すぐに使い始められます</li>
+          </ol>
+        </div>
+
+        <div class="prep-aside prep-aside--info">
+          <strong>なぜエディタがあると便利？</strong>
+          <p>Claude Code で <kbd>Ctrl+G</kbd> を押すと外部エディタでプロンプトを編集できます。長い指示を書くときにとても便利です。</p>
+        </div>
+      </div>
+
+      <!-- 5. CLI Install (REFERENCE — DEMOTED) -->
+      <div class="prep-item prep-item--ref">
+        <div class="prep-tag">参考 / 上級者向け</div>
+        <h3>(参考) Claude Code CLI 版をインストールする</h3>
+        <p>ターミナルから直接 Claude Code を使う方法です。<strong>当日のハンズオンは Desktop アプリで進めるため、こちらの事前準備は必須ではありません。</strong> ターミナルに慣れている方や、より深く触ってみたい方向けに参考として残しています。</p>
 
         <div class="os-tabs" data-group="cli">
           <button class="os-tab active" data-os="mac">Mac</button>
@@ -625,61 +732,6 @@
         <p style="margin-top: 0.8rem;">公式ガイド: <a href="https://code.claude.com/docs/ja/quickstart" target="_blank" rel="noopener">code.claude.com/docs/ja/quickstart</a></p>
       </div>
 
-      <!-- 4. Desktop App -->
-      <div class="prep-item prep-item--rec">
-        <div class="prep-tag">推奨</div>
-        <h3>Claude デスクトップアプリをインストールする</h3>
-        <p>Claude Codeが組み込まれたデスクトップアプリです。GUIで使えるので、ターミナルに慣れていない方にもおすすめです。</p>
-
-        <div class="os-tabs" data-group="app">
-          <button class="os-tab active" data-os="mac">Mac</button>
-          <button class="os-tab" data-os="win">Windows</button>
-        </div>
-        <div class="os-content active" data-group="app" data-os="mac">
-          <ol>
-            <li><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> にアクセスし「Download」からMac版をダウンロード</li>
-            <li>ダウンロードした .dmg ファイルを開き、アプリケーションフォルダにドラッグ</li>
-            <li>アプリを起動し、ログイン後「Code」タブを確認</li>
-          </ol>
-        </div>
-        <div class="os-content" data-group="app" data-os="win">
-          <ol>
-            <li><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> にアクセスし「Download」からWindows版をダウンロード</li>
-            <li>ダウンロードしたインストーラーを実行</li>
-            <li>アプリを起動し、ログイン後「Code」タブを確認</li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- 5. Editor -->
-      <div class="prep-item prep-item--opt">
-        <div class="prep-tag">任意</div>
-        <h3>コードエディタをインストールする</h3>
-        <p>必須ではありませんが、あると作業が快適になります。</p>
-
-        <div class="os-tabs" data-group="editor">
-          <button class="os-tab active" data-os="vscode">VS Code</button>
-          <button class="os-tab" data-os="cursor">Cursor</button>
-        </div>
-        <div class="os-content active" data-group="editor" data-os="vscode">
-          <ol>
-            <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a> からダウンロード（無料）</li>
-            <li>インストール後、拡張機能（<kbd>Cmd+Shift+X</kbd> / <kbd>Ctrl+Shift+X</kbd>）で「Claude Code」を検索してインストール</li>
-          </ol>
-        </div>
-        <div class="os-content" data-group="editor" data-os="cursor">
-          <ol>
-            <li><a href="https://www.cursor.com/" target="_blank" rel="noopener">cursor.com</a> からダウンロード</li>
-            <li>AI機能が組み込まれたエディタで、すぐに使い始められます</li>
-          </ol>
-        </div>
-
-        <div class="prep-aside prep-aside--info">
-          <strong>なぜエディタがあると便利？</strong>
-          <p>Claude Code で <kbd>Ctrl+G</kbd> を押すと外部エディタでプロンプトを編集できます。長い指示を書くときにとても便利です。</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -692,8 +744,8 @@
   </section>
   <div class="checklist-strip">
     <div class="cl-item">
-      <div class="cl-icon">&#x1F4BB;</div>
       <div>
+        <div class="cl-icon">&#x1F4BB;</div>
         <h4>ノートPC（Mac / Windows）</h4>
         <p>充電済みで持参。充電器もあると安心。</p>
       </div>
@@ -702,7 +754,7 @@
       <div>
         <div class="cl-icon">&#x1F511;</div>
         <h4>Claudeアカウント</h4>
-        <p>Proプラン加入済み、オプトアウト設定済み。</p>
+        <p>Proプラン加入済み、オプトアウト設定済み、デスクトップアプリ起動済み。</p>
       </div>
     </div>
     <div class="cl-item">
