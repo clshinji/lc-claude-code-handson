@@ -5,6 +5,7 @@
 .claude/.DS_Store
 
 .playwright-mcp/
+.playwright-cli/
 
 demo-prompts.md
 demo-site/
