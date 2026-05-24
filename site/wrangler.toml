@@ -1,0 +1,13 @@
+# Cloudflare Pages 設定 (site/ をそのままデプロイする)
+name = "lc-handson-site"
+pages_build_output_dir = "."
+compatibility_date = "2026-05-23"
+
+# Basic Auth の認証情報は環境変数 / Secret で渡すこと:
+#   wrangler pages secret put BASIC_AUTH_USER --project-name lc-handson-site
+#   wrangler pages secret put BASIC_AUTH_PASS --project-name lc-handson-site
+#
+# ローカル開発 (`wrangler pages dev .`) では .dev.vars を使う:
+#   site/.dev.vars (.gitignore で除外)
+#     BASIC_AUTH_USER="handson"
+#     BASIC_AUTH_PASS="libe2026"

@@ -1,0 +1,19 @@
+# すべてのレスポンスに付与する共通ヘッダ
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+# 画像は長期キャッシュ (中身が変わったらファイル名を変えるか、 強制更新)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML と Markdown 原稿は短期キャッシュ
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/src/*
+  Cache-Control: public, max-age=300, must-revalidate

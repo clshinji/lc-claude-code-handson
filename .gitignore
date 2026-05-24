@@ -22,3 +22,10 @@ _admin/
 build/
 dist/review/
 dist/review-v2/
+
+# Cloudflare Pages のローカルキャッシュ・ローカル環境変数
+site/.wrangler/
+site/.dev.vars
+site/node_modules/
+
+play-with-clawd/
